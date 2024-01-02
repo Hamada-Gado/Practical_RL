@@ -1,3 +1,6 @@
+# my .gitignore
+videos/
+
 # node and NPM
 npm-debug.log
 node_modules
