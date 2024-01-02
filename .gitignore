@@ -1,5 +1,6 @@
 # my .gitignore
 videos/
+models/
 
 # node and NPM
 npm-debug.log
