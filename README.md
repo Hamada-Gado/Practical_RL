@@ -1,5 +1,7 @@
 # Practical_RL
 
+## This is solution of the forked [*Practical_RL*](https://github.com/yandexdataschool/Practical_RL) repo. 
+
 An open course on reinforcement learning in the wild.
 Taught on-campus at [HSE](https://cs.hse.ru) and [YSDA](https://yandexdataschool.com/)  and maintained to be friendly to online students (both english and russian).
 
