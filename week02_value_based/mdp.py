@@ -2,13 +2,14 @@
 # all credit goes to https://github.com/abhishekunique
 # (if I got the author right)
 import numpy as np
-from gym.utils import seeding
+from gymnasium.utils import seeding
 
 try:
     from graphviz import Digraph
     import graphviz
     has_graphviz = True
 except ImportError:
+    Digraph = None
     has_graphviz = False
 
 
@@ -101,9 +102,9 @@ class MDP:
         possible_states, probs = zip(*self.get_next_states(self._current_state, action).items())
         next_state = possible_states[self.np_random.choice(np.arange(len(possible_states)), p=probs)]
         reward = self.get_reward(self._current_state, action, next_state)
-        is_done = self.is_terminal(next_state)
+        terminated = self.is_terminal(next_state)
         self._current_state = next_state
-        return next_state, reward, is_done, {}
+        return next_state, reward, terminated, False, {}
 
     def render(self):
         print("Currently at %s" % self._current_state)
@@ -211,7 +212,7 @@ class FrozenLakeEnv(MDP):
             elif movement == 'up':
                 row = max(row - 1, 0)
             else:
-                raise ("invalid action")
+                raise Exception("invalid action")
             return (row, col)
 
         transition_probs = {s: {} for s in states}
@@ -290,6 +291,7 @@ def plot_graph(mdp, s_node_size='1,5',
                       'fontname': 'Arial',
                       'fontsize': '16'}
 
+    assert Digraph is not None, "Seems that graphviz is not installed. Please install it before using this function"
     graph = Digraph(name='MDP')
     graph.attr(rankdir=rankdir)
     for state_node in mdp._transition_probs:
