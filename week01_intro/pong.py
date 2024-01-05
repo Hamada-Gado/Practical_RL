@@ -1,14 +1,15 @@
 """Auxilary files for those who wanted to solve breakout with CEM or policy gradient"""
+import gymnasium as gym
+from gymnasium import Wrapper
+from gymnasium.spaces import Box
+
 import numpy as np
-import gym
-from scipy.misc import imresize
-from gym.core import Wrapper
-from gym.spaces.box import Box
+from PIL import Image
 
 
 def make_pong():
     """creates breakout env with all preprocessing done for you"""
-    return PreprocessAtari(gym.make("PongDeterministic-v0"))
+    return PreprocessAtari(gym.make("PongDeterministic-v4"))
 
 
 class PreprocessAtari(Wrapper):
@@ -24,14 +25,14 @@ class PreprocessAtari(Wrapper):
     def reset(self):
         """resets breakout, returns initial frames"""
         self.framebuffer = np.zeros_like(self.framebuffer)
-        self.update_buffer(self.env.reset())
+        self.update_buffer(self.env.reset()[0])
         return self.framebuffer
 
     def step(self, action):
         """plays breakout for 1 step, returns 4-frame buffer"""
-        new_img, r, done, info = self.env.step(action)
+        new_img, r, terminated, truncated, info = self.env.step(action)
         self.update_buffer(new_img)
-        return self.framebuffer, r, done, info
+        return self.framebuffer, r, terminated, truncated, info
 
     ###image processing###
 
@@ -42,6 +43,6 @@ class PreprocessAtari(Wrapper):
     def preproc_image(self, img):
         """what happens to the observation"""
         img = self.crop(img)
-        img = imresize(img, self.img_size).mean(-1)
+        img = np.array(Image.fromarray(img).resize(self.img_size)).mean(-1)
         img = img.astype('float32') / 255.
         return img
