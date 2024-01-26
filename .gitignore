@@ -3,6 +3,7 @@ videos/
 models/
 week04_\[recap]_deep_learning/notMNIST_small.tar.gz
 week04_\[recap]_deep_learning/notMNIST_small/
+logs/
 
 
 # node and NPM
