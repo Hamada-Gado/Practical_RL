@@ -3,8 +3,10 @@ ale-py==0.8.1
 asgiref==3.7.2
 asttokens==2.4.1
 astunparse==1.6.3
-AutoROM==0.6.1
+AutoROM==0.4.2
+AutoROM.accept-rom-license==0.6.1
 box2d-py==2.3.5
+bsuite==0.3.5
 cachetools==5.3.2
 certifi==2023.11.17
 cffi==1.16.0
@@ -18,6 +20,8 @@ Cython==0.29.37
 debugpy==1.8.0
 decorator==4.4.2
 Django==5.0.1
+dm-env==1.6
+dm-tree==0.1.8
 etils==1.6.0
 exceptiongroup==1.2.0
 executing==2.0.1
@@ -26,6 +30,7 @@ fasteners==0.19
 filelock==3.13.1
 flatbuffers==23.5.26
 fonttools==4.47.0
+frozendict==2.4.0
 fsspec==2023.12.2
 gast==0.5.4
 glfw==2.6.4
@@ -34,6 +39,8 @@ google-auth-oauthlib==1.2.0
 google-pasta==0.2.0
 graphviz==0.20.1
 grpcio==1.60.0
+gym==0.26.2
+gym-notices==0.0.8
 gymnasium==0.29.1
 h5py==3.10.0
 idna==3.6
@@ -59,6 +66,7 @@ Markdown==3.5.2
 MarkupSafe==2.1.3
 matplotlib==3.8.2
 matplotlib-inline==0.1.6
+mizani==0.9.3
 ml-dtypes==0.2.0
 moviepy==1.0.3
 mpmath==1.3.0
@@ -85,9 +93,11 @@ opt-einsum==3.3.0
 packaging==23.2
 pandas==2.1.4
 parso==0.8.3
+patsy==0.5.6
 pexpect==4.9.0
 Pillow==10.1.0
 platformdirs==4.1.0
+plotnine==0.12.4
 proglog==0.1.10
 prompt-toolkit==3.0.43
 protobuf==4.23.4
@@ -114,10 +124,12 @@ Shimmy==0.2.1
 six==1.16.0
 sqlparse==0.4.4
 stack-data==0.6.3
+statsmodels==0.14.1
 swig==4.1.1.post1
 sympy==1.12
 tensorboard==2.15.1
 tensorboard-data-server==0.7.2
+tensorboardX==2.6.2.2
 tensorflow==2.15.0.post1
 tensorflow-estimator==2.15.0
 tensorflow-io-gcs-filesystem==0.35.0
