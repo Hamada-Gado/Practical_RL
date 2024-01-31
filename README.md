@@ -2,7 +2,7 @@
 
 ---
 ## This is solution of the forked [*Practical_RL*](https://github.com/yandexdataschool/Practical_RL) repo.
-- **I am currently finished working on week06**
+- **I am currently finished working on week07**
 ---
 
 An open course on reinforcement learning in the wild.
